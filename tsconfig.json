@@ -6,12 +6,13 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "isolatedModules": true
+    "isolatedModules": true,
+  "types": ["node"]
   },
 
   "references": [
     {
       "path": "./tsconfig.vite-config.json"
     }
-  ]
+  ],
 }

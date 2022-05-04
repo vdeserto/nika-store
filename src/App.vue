@@ -2,11 +2,8 @@
 import { RouterLink, RouterView } from "vue-router";
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
+import { ref } from "vue";
 // import HelloWorld from '@/components/HelloWorld.vue'
-
-data: () => {
-  return {};
-};
 </script>
 
 <template>
@@ -23,7 +20,7 @@ data: () => {
     </div>
   </header> -->
 
-  <Navbar :is-mobile="false" />
+  <Navbar />
 
   <RouterView class="main-app" />
 
@@ -34,7 +31,7 @@ data: () => {
 @import "@/assets/base.css";
 
 .main-app {
-  margin-top: 56px !important;
-  height: 100vh;
+  margin-top: 15vh !important;
+  min-height: 100vh;
 }
 </style>

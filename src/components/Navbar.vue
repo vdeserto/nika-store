@@ -1,14 +1,14 @@
 <script setup lang="ts">
-defineProps<{
-  isMobile: boolean;
-}>();
+import { ref } from "vue";
+
+const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
 </script>
 
 <style lang="scss" scoped></style>
 
 <template>
   <div>
-    <div v-if="isMobile">
+    <!-- <div v-if="isMobile">
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
           <h5 class="text-white h4">Collapsed content</h5>
@@ -30,13 +30,16 @@ defineProps<{
           </button>
         </div>
       </nav>
-    </div>
-    <div v-else>
+    </div> -->
+    <div>
       <header>
         <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Fixed navbar</a>
+        <nav :class="`navbar navbar-expand-md navbar-dark fixed-top bg-dark ${mobile()}`">
+          <div :class="`container-fluid ${mobile()}`">
+            <router-link class="navbar-brand" :to="{ name: 'home' }">
+              <img src="@/assets/nika_store.svg" width="48" />
+              Nika Store
+            </router-link>
             <button
               class="navbar-toggler"
               type="button"
