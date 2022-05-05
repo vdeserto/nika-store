@@ -8,29 +8,6 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
 
 <template>
   <div>
-    <!-- <div v-if="isMobile">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-    </div> -->
     <div>
       <header>
         <!-- Fixed navbar -->
@@ -56,24 +33,42 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                    >Disabled</a
-                  >
-                </li>
               </ul>
-              <form class="d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              <div class="navbar-nav nav-fill col">
+                <form class="d-flex">
+                  <input
+                    class="form-control me-2 col-6"
+                    type="search"
+                    placeholder=""
+                    aria-label="Buscar"
+                  />
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+              <div class="navbar">
+                <ul class="navbar-nav mx-auto">
+                  <router-link :to="{ name: 'login' }" class="nav-link">
+                    <div>Olá, Faça seu login</div>
+                  </router-link>
+                  <li class="nav-item">
+                    <router-link :to="{ name: 'home' }" class="nav-link">
+                      Devoluções e Pedidos
+                    </router-link>
+                  </li>
+                  <router-link :to="{ name: 'home' }" class="nav-link d-flex">
+                    <div class="nav-item">
+                      <picture>
+                        <source
+                          srcset="/src/assets/cart.png"
+                          media="(min-width: 140px)"
+                        />
+                        <img src="/src/assets/cart.png" alt="..." width="24" />
+                      </picture>
+                    </div>
+                    <div>Carrinho</div>
+                  </router-link>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
