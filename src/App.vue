@@ -31,7 +31,7 @@ import { ref } from "vue";
 @import "@/assets/base.css";
 
 .main-app {
-  margin-top: 15vh !important;
+  margin-top: 15% !important;
   min-height: 100vh;
 }
 </style>
