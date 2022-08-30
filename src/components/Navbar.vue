@@ -38,6 +38,7 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
                 <div class="navbar-nav">
                   <form class="input-group d-flex">
                     <button
+                      id="btnDepartmentsDropDown"
                       class="btn btn-secondary dropdown-toggle"
                       type="button"
                       data-bs-toggle="dropdown"
@@ -73,14 +74,12 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
                       <select
                         class="form-select form-select-sm ml-4"
                         aria-label="Default select example"
+                        @change="handleSelectCategory($event)"
                       >
                         <option selected>Categorias</option>
                         <option v-for="categoria in categorias" :key="categoria.id">
                           {{ categoria.title }}
                         </option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
                       </select>
                   </li>
                   <li class="nav-item">
@@ -133,27 +132,43 @@ export default {
       ],
     };
   },
+  methods:{
+    handleSelectCategory(event: Event){
+      return 1;
+    }
+  }
 };
 </script>
 
 <style lang="css">
-@media (max-width: 767px) {
+  select.form-select {
+    display: none;
+  }
+@media (min-width: 768px) {
   #navbarCollapse > .navbar {
-    flex-direction: column;
-    align-items: start;
+    /* flex-direction: column;
+    align-items: start; */
+    font-size: smaller;
+    flex-wrap: nowrap;
   }
   .navbar-nav {
     width: 100%;
   }
 }
-@media (min-width: 480px) and (max-width: 986px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .navbar-nav {
     justify-content: center;
     width: 100%;
   }
+  #btnDepartmentsDropDown{
+    display: none;
+  }
 }
 @media (max-width: 479px) {
   div.navbar-nav {
+    width: 100%;
+  }
+  #btnDepartmentsDropDown{
     display: none;
   }
 }
