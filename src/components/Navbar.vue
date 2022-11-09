@@ -4,10 +4,57 @@ import { ref } from "vue";
 const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+select.form-select {
+    display: none;
+  }
+.nav-link {
+  width: max-content;
+}
+#navbar{
+  margin-bottom: 7.5%;
+}
+@media (min-width: 768px) and (max-width: 991px){
+  #navbarCollapse > .navbar {
+    /* flex-direction: column;
+    align-items: start; */
+    font-size: smaller;
+    flex-wrap: nowrap;
+  }
+  .navbar-nav {
+    width: 100%;
+  }
+  #navbar{
+    margin-bottom: 10%;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .navbar-nav {
+    justify-content: center;
+    width: 100%;
+  }
+  #btnDepartmentsDropDown{
+    display: none;
+  }
+  #navbar{
+    margin-bottom: 15%;
+  }
+}
+@media (max-width: 479px) {
+  div.navbar-nav {
+    width: 100%;
+  }
+  #btnDepartmentsDropDown{
+    display: none;
+  }
+  #navbar{
+    margin-bottom: 20%;
+  }
+}
+</style>
 
 <template>
-  <div>
+  <div id="navbar">
     <div>
       <header>
         <!-- Fixed navbar -->
@@ -67,13 +114,12 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
                     </button>
                   </form>
                 </div>
-                <!-- </div> -->
-                <!-- <div class="navbar-nav"> -->
+              
                 <ul class="navbar-nav">
                   <li class="nav-item align-items-center d-flex">
                       <select
                         class="form-select form-select-sm ml-4"
-                        aria-label="Default select example"
+                        aria-label="Selecionar categoria"
                         @change="handleSelectCategory($event)"
                       >
                         <option selected>Categorias</option>
@@ -96,10 +142,10 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
                     <div class="nav-item">
                       <picture>
                         <source
-                          srcset="/src/assets/cart.png"
+                          srcset="../assets/cart.png"
                           media="(min-width: 140px)"
                         />
-                        <img src="/src/assets/cart.png" alt="..." width="24" />
+                        <img src="../assets/cart.png" alt="..." width="24" />
                       </picture>
                     </div>
                     <div>Carrinho</div>
@@ -108,10 +154,6 @@ const mobile = () => (window.innerWidth <= 768 ? "pe-1" : "pe-3");
               </div>
             </div>
           </div>
-          <!-- <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-  <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
-</div> -->
         </nav>
       </header>
     </div>

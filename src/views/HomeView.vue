@@ -1,5 +1,5 @@
 <script lang="ts">
-// import TheWelcome from '@/components/TheWelcome.vue'
+
 export default {
   data: function () {
     return {
@@ -101,3 +101,7 @@ export default {
     </div>
   </main>
 </template>
+
+<style scoped>
+
+</style>
