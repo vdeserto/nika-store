@@ -1,51 +1,113 @@
 <template>
-    <main>
-        <div class="container d-grid col-6">
-            <h4>Faça seu cadastro</h4>
-            <form class="d-grid">
-                <div class="form-group">
-                    <label for="fullName">Nome Completo</label>
-                    <input class="form-control" type="text" name="fullName" id="fullName">
-                </div>
-
-                <div class="form-group">
-                    <label for="gender">Gênero</label>
-                    <select class="form-select d-grid" aria-label="Gênero">
-                        <option selected>Selecione...</option>
-                        <option value="1">Masculino</option>
-                        <option value="2">Feminino</option>
-                        <option value="3">Outro</option>
-                        <option value="4">Prefiro não informar</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="documentNumber">CPF/CNPJ</label>
-                    <input class="form-control" type="text" name="documentNumber" id="documentNumber">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Digite uma senha</label>
-                    <input class="form-control" type="password" name="pwd" id="pwd">
-                </div>
-                <div class="form-group">
-                    <label for="pwd2">Digite a senha novamente</label>
-                    <input class="form-control" type="password" name="pwd2" id="pwd2">
-                </div>
-
-                <button class="btn btn-primary btn-submit my-2" type="submit">Fazer Login</button>
-            </form>
-            <small>Ainda não tem um cadastro? Registre-se <router-link :to="{ name: 'register' }"
-                    class="link-secondary">aqui.</router-link></small>
+  <main>
+    <div class="container d-grid col-6">
+      <h4>Faça seu cadastro</h4>
+      <form class="d-grid">
+        <div class="row">
+          <div class="form-group col">
+            <label for="fullName"
+              ><span class="text-danger">*</span>Nome Completo</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="fullName"
+              id="fullName"
+              required
+            />
+          </div>
+          <div class="form-group col">
+            <label for="birthDate"
+              ><span class="text-danger">*</span>Data de Nascimento</label
+            >
+            <input
+              class="form-control"
+              type="date"
+              name="birthDate"
+              id="birthDate"
+              placeholder="__/__/____"
+            />
+          </div>
         </div>
-    </main>
+
+        <div class="">
+          <label for="gender"><span class="text-danger">*</span>Gênero</label>
+          <input
+            class="form-control"
+            list="genderDatalistOptions"
+            id="gender"
+            placeholder="Digite para pesquisar"
+          />
+          <datalist id="genderDatalistOptions">
+            <option value="Masculino" />
+            <option value="Feminino" />
+            <option value="Outro" />
+            <option value="Prefiro não informar" />
+          </datalist>
+        </div>
+        <div class="row">
+          <div class="form-group col">
+            <label for="documentNumber"
+              ><span class="text-danger">*</span>CPF</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="documentNumber"
+              id="documentNumber"
+              placeholder="___.___.___-__"
+            />
+          </div>
+          <div class="form-group col">
+            <label for="phone"
+              ><span class="text-danger">*</span>Telefone</label
+            >
+            <input
+              class="form-control"
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="(__) _____-____"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email"><span class="text-danger">*</span>E-mail</label>
+          <input
+            class="form-control"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pwd"
+            ><span class="text-danger">*</span>Digite uma senha</label
+          >
+          <input class="form-control" type="password" name="pwd" id="pwd" />
+        </div>
+        <div class="form-group">
+          <label for="pwd2"
+            ><span class="text-danger">*</span>Digite a senha novamente</label
+          >
+          <input class="form-control" type="password" name="pwd2" id="pwd2" />
+        </div>
+
+        <button class="btn btn-primary btn-submit my-2" type="submit">
+          Criar seu cadastro
+        </button>
+      </form>
+    </div>
+  </main>
 </template>
-  
+
 <style>
 @media (min-width: 1024px) {
-    .about {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-    }
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
 }
 </style>
-  

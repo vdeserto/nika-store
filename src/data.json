@@ -1,0 +1,15 @@
+[
+    {
+        "username": "desertoh",
+        "password": "123456",
+        "fullName": "Victor Deserto",
+        "documentNumber" : "73599419035"
+    },
+    {
+        "username": "test",
+        "password": "123456",
+        "fullName": "User Test",
+        "documentNumber" : "35405706501"
+    }
+    
+]
