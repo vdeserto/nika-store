@@ -2,7 +2,7 @@
   <main>
     <div class="container d-grid col-6">
       <h4>Faça seu cadastro</h4>
-      <form class="d-grid">
+      <form class="d-grid" @submit.prevent="register">
         <div class="row">
           <div class="form-group col">
             <label for="fullName"
@@ -14,6 +14,7 @@
               name="fullName"
               id="fullName"
               required
+              v-model="registerForm.fullName"
             />
           </div>
           <div class="form-group col">
@@ -26,6 +27,8 @@
               name="birthDate"
               id="birthDate"
               placeholder="__/__/____"
+              required
+              v-model="registerForm.birthDate"
             />
           </div>
         </div>
@@ -37,6 +40,8 @@
             list="genderDatalistOptions"
             id="gender"
             placeholder="Digite para pesquisar"
+            required
+            v-model="registerForm.gender"
           />
           <datalist id="genderDatalistOptions">
             <option value="Masculino" />
@@ -56,6 +61,8 @@
               name="documentNumber"
               id="documentNumber"
               placeholder="___.___.___-__"
+              required
+              v-model="registerForm.documentNumber"
             />
           </div>
           <div class="form-group col">
@@ -68,6 +75,8 @@
               name="phone"
               id="phone"
               placeholder="(__) _____-____"
+              required
+              v-model="registerForm.phone"
             />
           </div>
         </div>
@@ -79,19 +88,40 @@
             name="email"
             id="email"
             placeholder="name@example.com"
+            required
+            v-model="registerForm.email"
           />
         </div>
-        <div class="form-group">
-          <label for="pwd"
-            ><span class="text-danger">*</span>Digite uma senha</label
-          >
-          <input class="form-control" type="password" name="pwd" id="pwd" />
-        </div>
-        <div class="form-group">
-          <label for="pwd2"
-            ><span class="text-danger">*</span>Digite a senha novamente</label
-          >
-          <input class="form-control" type="password" name="pwd2" id="pwd2" />
+        <div class="row">
+          <div class="form-group col">
+            <label for="pwd"
+              ><span class="text-danger">*</span>Digite uma senha</label
+            >
+            <input
+              class="form-control"
+              type="password"
+              name="pwd"
+              id="pwd"
+              placeholder="********"
+              required
+              v-model="registerForm.pwd"
+            />
+          </div>
+          <div class="form-group col">
+            <label for="pwd2"
+              ><span class="text-danger">*</span>Digite a senha novamente</label
+            >
+            <input
+              class="form-control"
+              type="password"
+              name="pwd2"
+              id="pwd2"
+              placeholder="********"
+              required
+              @keydown="checkPassword"
+              v-model="registerForm.pwd2"
+            />
+          </div>
         </div>
 
         <button class="btn btn-primary btn-submit my-2" type="submit">
@@ -101,6 +131,25 @@
     </div>
   </main>
 </template>
+
+
+<script setup lang="ts">
+import { IUser } from '../model/IUser'
+
+let registerForm: IUser
+
+function register(): undefined {
+  return undefined
+}
+
+function checkPassword(): boolean {
+  return false
+}
+
+  
+
+</script>
+
 
 <style>
 @media (min-width: 1024px) {

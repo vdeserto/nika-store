@@ -1,23 +1,29 @@
 <script lang="ts">
 
+import prime from '@/assets/prime.png'
+import electronics from '@/assets/eletronics_amazon.png'
+import young_on_phone from '@/assets/young_on_phone.png'
+import ebook from '@/assets/ebook_amazon_cover.jpg'
+import diaDasMaes from '@/assets/amazon_dia_das_maes.jpg'
+
 export default {
   data: function () {
     return {
       cards: [
         {
-          image: "/src/assets/prime.png",
+          image: prime,
           title: "Test title 1",
           text: "Text 1",
           footer: "Footer 1",
         },
         {
-          image: "/src/assets/eletronics_amazon.png",
+          image: electronics,
           title: "Test title 2",
           text: "Text 2",
           footer: "Footer 2",
         },
         {
-          image: "/src/assets/young_on_phone.png",
+          image: young_on_phone,
           title: "Test title 3",
           text: "Text 3",
           footer: "Footer 3",
@@ -25,11 +31,11 @@ export default {
       ],
       carouselItems: [
         {
-          pathImage: "/src/assets/ebook_amazon_cover.jpg",
+          pathImage: ebook,
           alt: "Consulte o ebook da Amazon",
         },
         {
-          pathImage: "/src/assets/amazon_dia_das_maes.jpg",
+          pathImage: diaDasMaes,
           alt: "Veja as ofertas para o dia das mães",
         },
       ],
@@ -37,9 +43,6 @@ export default {
   },
 };
 
-// const getImage = (imagePath: string) => {
-//   return require(imagePath);
-// };
 </script>
 
 <template>
@@ -55,9 +58,9 @@ export default {
         </div>
         <div class="carousel-item" v-for="carouselItem in carouselItems">
           <img
-            :src="`${carouselItem.pathImage}`"
+            :src="carouselItem.pathImage"
             class="d-block w-100"
-            :alt="`${carouselItem.alt}`"
+            :alt="carouselItem.alt"
           />
         </div>
       </div>
@@ -86,7 +89,9 @@ export default {
     >
       <div class="col mb-3 mt-5" v-for="card in cards">
         <div class="card">
-          <img :src="`${card.image}`" class="card-img-top rounded" alt="..." />
+
+        <!-- V-BIND É CARREGADO EM TEMPO DE EXECUÇÃO -->
+          <img :src="card.image" class="card-img-top rounded" alt="..." />
           <div class="card-body align-items-stretch">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
@@ -94,7 +99,7 @@ export default {
             </p>
           </div>
           <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <small class="text-muted">{{ card.footer }}</small>
           </div>
         </div>
       </div>
